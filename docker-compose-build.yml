@@ -12,9 +12,9 @@ services:
     restart: unless-stopped
     depends_on:
       - dash
+      - api
     ports:
       - 80:80
-      - 443:443
     volumes:
       - ./user_conf.d:/etc/nginx/user_conf.d
 
