@@ -1,0 +1,90 @@
+{
+    // use the tsdk from node_modules instead of vscode default
+    "typescript.tsdk": "node_modules/typescript/lib",
+
+    // formatting
+    "files.trimTrailingWhitespace": true,
+    "prettier.tabWidth": 4,
+    "editor.formatOnType": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnSaveMode": "file",
+    "vs-code-prettier-eslint.prettierLast": false,
+    "prettier.useTabs": false,
+    "eslint.useFlatConfig": false,
+
+    // language specific
+    "[typescriptreact]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+        "editor.formatOnType": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file",
+
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "[json]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+        "editor.formatOnType": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file",
+
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    "[jsonc]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "prettier.tabWidth": 2,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+        "editor.formatOnType": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.formatOnType": true
+    },
+    "[html]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnType": false,
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file"
+    },
+
+    // js/ts
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+        "^lucide-react/dist/lucide-react.suffixed$",
+        "drizzle-orm/gel-core",
+        "drizzle-orm/mysql-core",
+        "drizzle-orm/sqlite-core",
+        "drizzle-orm/singlestore-core"
+    ],
+    "typescript.experimental.useTsgo": false
+}

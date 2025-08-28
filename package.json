@@ -1,0 +1,42 @@
+{
+  "name": "cctech",
+  "devDependencies": {
+    "prettier-eslint": "16.3.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@vitest/ui": "^3.2.4",
+    "vitest": "^3.2.4"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "private": true,
+  "resolutions": {
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "api": "pnpm --filter @cctech/api",
+    "clean": "pnpm dlx rimraf --glob **/node_modules **/dist **/styled-system",
+    "contract": "pnpm --filter @cctech/contract",
+    "core": "pnpm --filter @cctech/core",
+    "dash": "pnpm --filter @cctech/dash",
+    "format": "pnpm --recursive format",
+    "lint": "pnpm --recursive lint",
+    "packages": "pnpm  --parallel --filter \"./packages/*\" --filter \"!*eslint*\" --filter \"!*prettier*\" --filter \"!*ls-lint*\"",
+    "repository": "pnpm --filter @cctech/repository",
+    "migrations": "pnpm --filter @cctech/migrations",
+    "eslint-plugin": "pnpm --filter @cctech/eslint-plugin",
+    "gis-viewer": "pnpm --filter @cctech/gis-viewer",
+    "dag": "pnpm --filter @cctech/dag",
+    "geojson-tree": "pnpm --filter @cctech/geojson-tree",
+    "schema": "pnpm --filter @cctech/schema",
+    "sp:list": "syncpack list",
+    "typecheck": "pnpm --recursive typecheck",
+    "docker-build:api": "docker build -f Dockerfile.api -t 098765432112.dkr.ecr.ap-south-1.amazonaws.com/drs:drs-api .",
+    "docker-push:api": "docker push 098765432112.dkr.ecr.ap-south-1.amazonaws.com/drs:drs-api",
+    "docker-build:dash": "docker build -f Dockerfile.dash -t 098765432112.dkr.ecr.ap-south-1.amazonaws.com/drs:drs-dash .",
+    "docker-push:dash": "docker push 098765432112.dkr.ecr.ap-south-1.amazonaws.com/drs:drs-dash",
+    "test": "vitest --config ./vitest.config.ts --disableConsoleIntercept=false --coverage.reportsDirectory=./coverage/generated --outputFile.cobertura=./coverage/generated/cobertura-coverage.xml --outputFile.junit=./coverage/generated/test-results.xml --outputFile.html=./coverage/generated/index.html",
+    "table": "bash -c 'docker exec -e PGPASSWORD=postgres drs-postgres-1 psql -U postgres -d cctech -c \"SELECT * FROM \\\"$1\\\";\"' _"
+  },
+  "type": "module"
+}

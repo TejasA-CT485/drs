@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  api:
+    image: drs-api:latest
+
+  dash:
+    image: drs-dash:latest
+
+  proxy:
+    image: jonasal/nginx-certbot:latest
+    restart: unless-stopped
+    depends_on:
+      - dash
+    environment:
+      CERTBOT_EMAIL: mahendra.dambe@cctech.co.in
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - nginx_secrets:/etc/letsencrypt
+      - ./user_conf.d:/etc/nginx/user_conf.d
+
+  postgres:
+    image: postgis/postgis
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: cctech
+    command: ["postgres", "-c", "log_statement=all"]
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  valkey:
+    image: valkey/valkey
+    restart: always
+    command: valkey-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes:
+      - valkey:/data
+
+volumes:
+  nginx_secrets:
+  postgres-data:
+  valkey:

@@ -1,0 +1,36 @@
+**/node_modules
+node_modules
+user_conf.d
+apps/**/node_modules
+packages/**/node_modules
+dist
+build
+.pnpm-store
+.pnp.*
+*.log
+.git
+.gitignore
+Dockerfile
+.dockerignore
+.env
+
+
+# Ignore pnpm & build artifacts
+.pnpm-store
+.pnpm
+.pnp.*
+dist
+build
+.cache
+.next
+turbo
+*.log
+
+# Ignore version control
+.git
+.gitignore
+
+# Ignore environment and config files you don't need in image
+.env
+.env.*
+*.local
