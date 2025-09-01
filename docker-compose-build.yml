@@ -8,18 +8,15 @@ services:
     image: drs-dash:latest
 
   proxy:
-    image: jonasal/nginx-certbot:latest
+    image: nginx:latest
     restart: unless-stopped
     depends_on:
       - dash
-    environment:
-      CERTBOT_EMAIL: mahendra.dambe@cctech.co.in
+      - api
     ports:
       - 80:80
-      - 443:443
     volumes:
-      - nginx_secrets:/etc/letsencrypt
-      - ./user_conf.d:/etc/nginx/user_conf.d
+      - ./user_conf.d:/etc/nginx/conf.d
 
   postgres:
     image: postgis/postgis
